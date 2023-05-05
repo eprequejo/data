@@ -1,5 +1,5 @@
 // load the data from a local file
-d3.csv("Life_Expectancy_Data.csv").then(fullData => {
+d3.csv("https://raw.githubusercontent.com/eprequejo/visualisations/main/Life_Expectancy_Data.csv").then(fullData => {
 
   // clean full data
   let cleanFullData = cleanData(fullData);
