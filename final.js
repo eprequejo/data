@@ -90,9 +90,10 @@ d3.csv("Life_Expectancy_Data.csv").then(fullData => {
       .append("g")
       .attr("transform", "translate (" + margin.left + ",0)");
   
-  /** 
-   * pinta grafica histograma con eje y el valor g
+  /**
+   * Funcion auxiliar para mostrar la grafica histograma secundaria
    * parametro de entrada country para recuperar el array con todos los anios del full data
+   * @param country 
    */
   function showDetails(country) {
 
@@ -142,9 +143,13 @@ d3.csv("Life_Expectancy_Data.csv").then(fullData => {
 
 /** Definicion de funciones auxiliares para la reutilizacion y abstraccion de codigo */
 
-/** 
+/**
  * Funcion auxiliar para pintar structura de grafica secundaria solo una vez 
- * devuelve el object elemetDetails 
+ * @param width 
+ * @param height 
+ * @param margin 
+ * @param ejeX 
+ * @returns elementDetails created object
  */
 function detailsGraph(width, height, margin, ejeX) {
   let elementDetails = d3
@@ -161,28 +166,34 @@ function detailsGraph(width, height, margin, ejeX) {
     return elementDetails;
 }
 
-/** 
+/**
  * Helper function para filtrar el full data por country
- * devuelve un array de details para una misma country desde 2000 a 2015
+ * @param cleanFullData 
+ * @param country 
+ * @returns una array con todos los elementos de la misma country desde 2000 a 2015 
  */
 function findDataByCountry(cleanFullData, country) {
   return cleanFullData.filter(d => d.country == country)
 }
 
-/** 
+/**
+ * 
  * Helper function para borrar el tooltip 
+ * @param tooltip 
  */
 function hideTooltip(tooltip) {
   tooltip.style("opacity",0);
 }
 
-/** 
+/**
  * Helper function para mostrar el tooltip en la grafica principal 
  * mostrara el siguiente texto usando html
  * Year: ${d.year}
  * Country: ${d.country}
  * Life Expentancy: ${d.lifeExpentancy}
  * Human Development Index: ${d.icor}`)
+ * @param tooltip 
+ * @param d 
  */
 function showTooltipMain(tooltip, d) {
   tooltip
@@ -196,13 +207,15 @@ function showTooltipMain(tooltip, d) {
     .style("opacity",1);
 }
 
-/** 
+/**
  * Helper function para mostrar el tooltip en la grafica secundaria
  * mostrara el siguiente texto usando html
  * Year: ${d.year}
  * Country: ${d.country}
  * Life Expentancy: ${d.lifeExpentancy}
  * Human Development Index: ${d.icor}`)
+ * @param tooltip 
+ * @param d 
  */
 function showTooltipSecondary(tooltip, d) {
   tooltip
@@ -214,4 +227,26 @@ function showTooltipSecondary(tooltip, d) {
     .style ("top", d3.event.pageY + "px") // position top
     .style ("left", d3.event.pageX + "px") // and left
     .style("opacity",1);
+}
+
+/**
+ * Funcion auxiliar con un preprocesado de los datos para facil posterior acceso
+ * @param data 
+ * @returns array de data
+ */
+function cleanData(data) {
+  let clean = data.map((d, i) => {
+    return { 
+      index: i,
+      year: d.Year, 
+      lifeExpentancy: d["Life expectancy "], 
+      country: d.Country,
+      icor: d["Income composition of resources"],
+      gdp: d.GDP,
+      schooling: d.Schooling
+    }
+  });
+  // filter data if no icor para no molestarnos con datos que no existen
+  // hacemos dos bucles en esta funcion pero no nos molesta para esta actividad
+  return clean.filter(d => d.icor != "");
 }
