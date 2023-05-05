@@ -1,5 +1,6 @@
 function cleanData(data) {
-  return data.map((d, i) => {
+
+  let clean = data.map((d, i) => {
     return { 
       index: i,
       year: d.Year, 
@@ -10,4 +11,7 @@ function cleanData(data) {
       schooling: d.Schooling
     }
   });
+  // filter data if no icor para no molestarnos con datos que no existen
+  // hacemos dos bucles en esta funcion pero no nos molesta para esta actividad
+  return clean.filter(d => d.icor != "");
 }
