@@ -11,6 +11,10 @@
     </head>
     <body>
       <style>
+        .title {
+          display: inline-block;
+          width: 600px;
+        }
         .tooltip {
           opacity: 0;
           position: absolute;
@@ -24,17 +28,29 @@
           color: #FFFFFF;
           border-radius: 4px;    
         }
+        .secondary-text {
+          font-size: 13px;
+        }
       </style>
 
-        <p>
-          Grafica principal: 
-          Grafica de dispersion "Esperanza de vida" vs "Income composition of resources"
-          para anio 2015
-        </p>
-        <p>
-          Grafica secundaria: Detalles "Esperanza de vida" vs "Income composition of resources"
-          desde 2000 a 2015
-        </p>
+        <div class="title">
+          <strong>Grafica principal:</strong>
+          <p>"Esperanza de Vida" vs "Human Development Index (HDI)"</p>
+          <p class="secondary-text">
+            La grafica muestra los datos para el anio 2015 para todos los paises del mundo
+          </p>
+        </div>
+        <div class="title">
+          <strong>
+            Grafica secundaria:
+          </strong>
+          <p>
+            Histograma "Esperanza de vida" vs "Income composition of resources"
+          </p>
+          <p class="secondary-text">
+            La grafica muestra la evolucion desde el anio 2000 and anio 2015 para un pais en concreto
+          </p>
+        </div>
         <!-- Aqui se generaran las graficas con d3 desde final.js -->
     </body>
 </html>

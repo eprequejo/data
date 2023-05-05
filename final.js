@@ -40,6 +40,7 @@ d3.csv("Life_Expectancy_Data.csv").then(fullData => {
     .append("div")
     .attr("class","tooltip");
 
+  // creacion de elemento para grafica principal
   let element = d3
     .select("body")
     .append("svg")
