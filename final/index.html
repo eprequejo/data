@@ -1,0 +1,62 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="main.css">
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+      <script src="common.js"></script>
+      <!-- <script src="sesion3.js"></script> -->
+      <!-- <script src="sesion4.js"></script> -->
+      <!-- <script src="sesion5.js"></script> -->
+      <!-- <script src="sesion6.js"></script> -->
+      <script src="final.js"></script>
+    </head>
+    <body>
+      <style>
+        .title {
+          display: inline-block;
+          width: 600px;
+        }
+        .tooltip {
+          opacity: 0;
+          position: absolute;
+          pointer-events: none;
+          font-family: Arial, helvetica, sans-serif;
+          font-size: 11px;
+          padding: 2px;
+          background: rgba(0, 0, 0, 0.7);
+          /* border: 1px solid #FFFFFF; */
+          box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 10px;
+          color: #FFFFFF;
+          border-radius: 4px;    
+        }
+        .secondary-text {
+          font-size: 14px;
+        }
+      </style>
+
+        <div class="title">
+          <strong>Gráfica principal:</strong>
+          <p>"Esperanza de Vida" vs "Human Development Index (HDI)"</p>
+          <p class="secondary-text">
+            La gráfica de dispersión muestra la esperanza de vida en el eje x 
+            vs el índice de desarrollo humano en el eje y
+            de todos los paises del mundo para el año 2015
+          </p>
+        </div>
+        <div class="title">
+          <strong>Grafica secundaria: </strong>
+          <span class="secondary-text">
+            (Haciendo mouse over en los elementos de la gráfica
+            principal, se activara la gráfica secundaria)
+          </span>
+          <p>
+            Histograma "Esperanza de vida" vs "Income composition of resources"
+          </p>
+          <p class="secondary-text">
+            La gráfica de dispersión muestra la evolucion desde el año 2000 
+            hasta el año 2015 de la esperanza de vida, (eje x), vs el índice de desarrollo 
+            humano, (eje y), para un pais en concreto
+          </p>
+        </div>
+        <!-- Aqui se generaran las graficas con d3 desde final.js -->
+    </body>
+</html>

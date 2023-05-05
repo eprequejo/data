@@ -1,4 +1,4 @@
-// load the data from a local file
+// load the data from public github  
 d3.csv("https://raw.githubusercontent.com/eprequejo/visualisations/main/Life_Expectancy_Data.csv").then(fullData => {
 
   // clean full data
